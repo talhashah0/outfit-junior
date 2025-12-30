@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav span {
+  cursor: pointer;
+}
+
+nav span:hover {
+  text-decoration: underline;
+}
