@@ -37,3 +37,12 @@
 .nav-links a:hover::after {
   width: 100%;
 }
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+}

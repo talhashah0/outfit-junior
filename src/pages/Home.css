@@ -26,3 +26,19 @@
   font-size: 14px;
   letter-spacing: 1px;
 }
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .cta {
+    padding: 12px 30px;
+    font-size: 13px;
+  }
+}

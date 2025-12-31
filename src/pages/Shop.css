@@ -41,4 +41,33 @@
   margin-top: 5px;
   font-weight: 600;
 }
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 60px;
+}
+
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 15px;
+  }
+}
 
