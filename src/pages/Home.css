@@ -1,44 +1,61 @@
-.home {
+.hero {
   height: calc(100vh - 80px);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #ffffff, #f7f7f7);
+  text-align: center;
+}
+
+.hero-content {
+  animation: fadeUp 1.2s ease forwards;
 }
 
 .hero h1 {
-  font-size: 60px;
-  letter-spacing: 3px;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
 }
 
 .hero p {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #555;
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 35px;
 }
 
-.cta {
-  margin-top: 40px;
-  display: inline-block;
-  padding: 14px 40px;
-  background: black;
+/* BUTTON */
+.hero-btn {
+  background: transparent;
   color: white;
-  font-size: 14px;
-  letter-spacing: 1px;
+  border: 1px solid white;
+  padding: 14px 40px;
+  letter-spacing: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.hero-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 36px;
-    text-align: center;
-  }
-
-  .hero p {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .cta {
-    padding: 12px 30px;
-    font-size: 13px;
+    font-size: 42px;
   }
 }

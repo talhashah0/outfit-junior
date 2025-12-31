@@ -1,16 +1,36 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 
 export default function Navbar() {
-  return (
-    <nav className="navbar">
-      <h1 className="logo">OUTFIT JUNIOR</h1>
+  const [scrolled, setScrolled] = useState(false);
 
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/shop">Shop</Link>
-        <Link to="/contact">Contact</Link>
-      </div>
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="logo">OUTFIT JUNIOR</div>
+
+      <ul className="nav-links">
+        <li>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/shop">Shop</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+      </ul>
     </nav>
   );
 }

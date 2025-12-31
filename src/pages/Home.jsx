@@ -1,17 +1,13 @@
-import { Link } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
   return (
-    <div className="home">
-      <div className="hero">
+    <section className="hero">
+      <div className="hero-content">
         <h1>Outfit Junior</h1>
         <p>Modern fashion for the next generation</p>
-
-        <Link to="/shop" className="cta">
-          Shop Now
-        </Link>
+        <button className="hero-btn">SHOP NOW</button>
       </div>
-    </div>
+    </section>
   );
 }

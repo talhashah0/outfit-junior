@@ -1,34 +1,34 @@
 .shop {
-  padding: 40px;
+  padding: 60px;
 }
 
 .shop h1 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 32px;
+  margin-bottom: 50px;
+  letter-spacing: 3px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
 }
 
 .card {
-  background: #fff;
+  background: #111;
   padding: 15px;
-  border: 1px solid #eee;
+  border: 1px solid #222;
   transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
 }
 
 .product-image {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 360px;
   overflow: hidden;
   margin-bottom: 15px;
 }
@@ -54,9 +54,12 @@
 }
 
 .card h3 {
-  margin: 10px 0 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .card p {
-  font-weight: bold;
+  color: #aaa;
+  font-size: 14px;
 }
