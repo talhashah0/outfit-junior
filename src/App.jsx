@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
-import Navbar from "./components/Navbar";
 
-function App() {
+export default function App() {
   return (
     <>
       <Navbar />
@@ -16,5 +17,3 @@ function App() {
     </>
   );
 }
-
-export default App;
