@@ -1,65 +1,75 @@
-.shop {
-  padding: 60px;
+.shop-page {
+  min-height: 100vh;
+  padding: 140px 80px 80px;
+  background: black;
+  color: white;
 }
 
-.shop h1 {
+.shop-title {
   text-align: center;
-  margin-bottom: 50px;
+  font-size: 36px;
   letter-spacing: 3px;
+  margin-bottom: 80px;
 }
 
+/* GRID */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
+  gap: 50px;
 }
 
-.card {
-  background: #111;
-  padding: 15px;
-  border: 1px solid #222;
-  transition: transform 0.3s ease;
+/* CARD */
+.product-card {
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  text-decoration: none;   /* FIX underline */
+  color: white;            /* FIX link color */
 }
 
-.card:hover {
+.product-card:hover {
   transform: translateY(-8px);
 }
 
-.product-image {
-  position: relative;
+/* IMAGE */
+.image-wrap {
   width: 100%;
   height: 360px;
   overflow: hidden;
-  margin-bottom: 15px;
 }
 
-.product-image img {
-  position: absolute;
+.image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.4s ease;
+  transition: transform 0.6s ease;
 }
 
-.img-back {
-  opacity: 0;
+.product-card:hover img {
+  transform: scale(1.08);
 }
 
-.product-image:hover .img-back {
-  opacity: 1;
+/* INFO */
+.product-info {
+  margin-top: 18px;
+  text-align: center;
 }
 
-.product-image:hover .img-front {
-  opacity: 0;
-}
-
-.card h3 {
-  margin-top: 10px;
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-
-.card p {
-  color: #aaa;
+.product-info h3 {
   font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.product-info span {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .shop-page {
+    padding: 120px 30px 60px;
+  }
 }

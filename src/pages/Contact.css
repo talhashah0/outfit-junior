@@ -1,36 +1,132 @@
 .contact {
-  padding: 40px;
-  max-width: 600px;
-  margin: auto;
+  min-height: 100vh;
+  background: black;
+  color: white;
+  padding: 140px 80px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
 }
 
-.contact h1 {
-  text-align: center;
+/* LEFT */
+.contact-left h1 {
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.contact-left p {
+  font-size: 14px;
+  color: #aaa;
+  letter-spacing: 1px;
+  max-width: 420px;
+}
+
+/* INFO */
+.contact-info {
+  margin-top: 60px;
+}
+
+.contact-email {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #aaa;
   margin-bottom: 30px;
 }
 
-.contact-form {
+/* SOCIAL LINKS */
+.social-links {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  gap: 40px;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+.social-links a {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #777;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.contact-form button {
-  padding: 12px;
-  background: black;
+.social-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 1px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.social-links a:hover {
   color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-.contact-form button:hover {
-  opacity: 0.85;
+.social-links a:hover::after {
+  width: 100%;
+}
+
+/* RIGHT (FORM) */
+.contact-right {
+  max-width: 420px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 14px 0;
+  margin-bottom: 36px;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.contact-right textarea {
+  resize: none;
+  height: 120px;
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+  color: #666;
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus {
+  outline: none;
+  border-bottom-color: white;
+}
+
+/* BUTTON */
+.contact-right button {
+  margin-top: 20px;
+  background: white;
+  color: black;
+  border: none;
+  padding: 14px 36px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-right button:hover {
+  background: #111;
+  color: white;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    padding: 120px 30px 60px;
+  }
 }
