@@ -1,75 +1,82 @@
 .shop-page {
   min-height: 100vh;
-  padding: 140px 80px 80px;
-  background: black;
-  color: white;
+  padding: 140px 80px 100px;
+  background: #000;
+  color: #fff;
 }
 
 .shop-title {
   text-align: center;
-  font-size: 36px;
-  letter-spacing: 3px;
-  margin-bottom: 80px;
+  font-size: 38px;
+  letter-spacing: 4px;
+  margin-bottom: 100px;
 }
 
-/* GRID */
-.product-grid {
+.shop-section {
+  margin-bottom: 120px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
+/* TILE GRID */
+.tile-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
 }
 
-/* CARD */
-.product-card {
+.tile-grid.single {
+  grid-template-columns: 1fr;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* TILE */
+.shop-tile {
+  border: 1px solid #111;
+  padding: 40px;
   cursor: pointer;
-  transition: transform 0.4s ease;
-  text-decoration: none;   /* FIX underline */
-  color: white;            /* FIX link color */
+  transition: transform 0.3s ease, border 0.3s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-8px);
+.shop-tile:hover {
+  transform: translateY(-6px);
+  border-color: #444;
 }
 
-/* IMAGE */
-.image-wrap {
-  width: 100%;
-  height: 360px;
-  overflow: hidden;
-}
-
-.image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.product-card:hover img {
-  transform: scale(1.08);
-}
-
-/* INFO */
-.product-info {
-  margin-top: 18px;
-  text-align: center;
-}
-
-.product-info h3 {
-  font-size: 14px;
+.shop-tile h3 {
+  font-size: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 6px;
 }
 
-.product-info span {
+/* EXPANDED CONTENT */
+.tile-content {
+  margin-top: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.tile-content li {
   font-size: 14px;
-  color: #aaa;
+  letter-spacing: 1px;
+  color: #ccc;
+  margin-bottom: 12px;
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .tile-grid {
+    grid-template-columns: 1fr;
+  }
+
   .shop-page {
-    padding: 120px 30px 60px;
+    padding: 120px 30px 80px;
   }
 }

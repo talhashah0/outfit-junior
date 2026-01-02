@@ -1,61 +1,111 @@
-.navbar {
+/* ===== ROOT NAVBAR ===== */
+.oj-navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 80px;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: #000;
+  z-index: 9999;
+}
+
+/* ===== INNER ===== */
+.oj-navbar-inner {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
   padding: 0 60px;
-  z-index: 1000;
-}
-
-.logo {
-  color: white;
-  font-weight: 700;
-  letter-spacing: 3px;
-  font-size: 18px;
-}
-
-.nav-links {
   display: flex;
-  gap: 30px;
-  list-style: none;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.nav-links a {
-  color: #ccc;
+/* ===== BRAND ===== */
+.oj-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.oj-logo {
+  border: 1px solid #fff;
+  padding: 6px 10px;
   font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.oj-name {
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+/* ===== LINKS ===== */
+.oj-links {
+  display: flex;
+  gap: 40px;
+}
+
+.oj-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
   letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.nav-links a.active {
-  color: white;
-  border-bottom: 1px solid white;
-}
-.nav-links a {
   position: relative;
-  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.nav-links a::after {
+/* underline desktop */
+.oj-link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -6px;
-  width: 100%;
+  width: 0%;
   height: 1px;
-  background: white;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: #fff;
+  transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  transform: scaleX(1);
-  transform-origin: left;
+.oj-link:hover::after,
+.oj-link.active::after {
+  width: 100%;
+}
+
+/* icons hidden on desktop */
+.icon {
+  display: none;
+  width: 18px;
+  height: 18px;
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width: 768px) {
+  .oj-navbar-inner {
+    padding: 0 20px;
+  }
+
+  .oj-name {
+    display: none;
+  }
+
+  .text {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+  }
+
+  .oj-links {
+    gap: 20px;
+  }
+
+  .oj-link::after {
+    display: none;
+  }
 }
