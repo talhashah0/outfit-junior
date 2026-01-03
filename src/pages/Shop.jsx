@@ -57,10 +57,10 @@ export default function Shop() {
         {/* APPAREL CONTENT */}
         {open === "top" && (
           <ul className="item-list">
-            <li>T-Shirts</li>
-            <li>Casual Shirts</li>
+            <li>Shirts</li>
             <li>Hoodies</li>
             <li>Sweaters</li>
+            <li>Jackets</li>
           </ul>
         )}
 
@@ -69,6 +69,8 @@ export default function Shop() {
             <li>Pants</li>
             <li>Trousers</li>
             <li>Pajamas</li>
+            <li>Tights</li>
+
           </ul>
         )}
 
@@ -80,6 +82,8 @@ export default function Shop() {
             <li>Waistcoat</li>
             <li>Dress Coat</li>
             <li>Prince Coat</li>
+            <li>Gallace Suiting</li>
+            <li>Girls Fancy</li>
           </ul>
         )}
       </section>
@@ -93,10 +97,11 @@ export default function Shop() {
           onClick={() => toggle("accessory")}
         >
           <img
-            src="https://www.svgrepo.com/show/508807/baby.svg"
-            alt="Accessories"
-            className="shop-icon"
-          />
+          src="https://www.svgrepo.com/show/506993/cel-rings-love.svg"
+          alt="Accessories"
+          className="shop-icon"
+        />
+
         </div>
 
         {open === "accessory" && (
