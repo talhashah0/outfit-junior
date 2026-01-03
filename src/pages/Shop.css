@@ -1,6 +1,6 @@
 .shop-page {
   min-height: 100vh;
-  padding: 140px 80px 120px;
+  padding: 140px 80px 100px;
   background: #000;
   color: #fff;
 }
@@ -13,7 +13,7 @@
 }
 
 .shop-section {
-  margin-bottom: 140px;
+  margin-bottom: 120px;
 }
 
 .section-title {
@@ -24,85 +24,84 @@
   text-transform: uppercase;
 }
 
-/* ================= ICON GRID ================= */
+/* ICON GRID */
 .icon-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   justify-items: center;
-  margin-bottom: 60px;
 }
 
-.icon-tile {
-  width: 140px;
-  height: 140px;
-  border: 1px solid #111;
+.icon-grid.single {
+  grid-template-columns: 1fr;
+}
+
+/* COLUMN (ICON + DROPDOWN) */
+.icon-column {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.35s ease;
+  width: 100%;
 }
 
-.icon-tile.single {
-  margin: 0 auto 60px;
+/* ICON TILE */
+.icon-tile {
+  background: transparent;
+  border: 1px solid #111;
+  padding: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.icon-tile:hover {
+  transform: translateY(-6px);
+  border-color: #444;
+}
+
+.icon-tile.active {
+  border-color: #777;
 }
 
 .shop-icon {
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   filter: invert(1);
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* ================= ACTIVE STATE ================= */
-.icon-tile.active {
-  border-color: #fff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
-  animation: glowPulse 2.4s ease-in-out infinite;
+/* DROPDOWN ANIMATION */
+.dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+  width: 100%;
 }
 
-.icon-tile.active .shop-icon {
-  filter: invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.6));
-  transform: scale(1.08);
+.dropdown.open {
+  max-height: 500px;
 }
 
-/* ================= LIST ================= */
+/* LIST */
 .item-list {
   list-style: none;
-  padding: 0;
-  margin-top: 40px;
+  padding: 20px 0 0;
+  margin: 0;
   text-align: center;
 }
 
 .item-list li {
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: #ccc;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-/* ================= ANIMATION ================= */
-@keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 0 rgba(255,255,255,0);
-  }
-  50% {
-    box-shadow: 0 0 22px rgba(255,255,255,0.35);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(255,255,255,0);
-  }
-}
-
-/* ================= MOBILE ================= */
+/* MOBILE & TABLET */
 @media (max-width: 900px) {
   .icon-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   .shop-page {
-    padding: 120px 30px 100px;
+    padding: 120px 30px 80px;
   }
 }
