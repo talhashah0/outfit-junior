@@ -1,12 +1,13 @@
-/* ===== ROOT NAVBAR ===== */
+/* ===== NAVBAR ===== */
 .oj-navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: var(--navbar-height);
   background: #000;
-  z-index: 9999;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 /* ===== INNER ===== */
@@ -14,38 +15,27 @@
   max-width: 1400px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 20px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* ===== BRAND ===== */
-.oj-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-.oj-logo {
-  border: 1px solid #fff;
-  padding: 6px 10px;
-  font-size: 13px;
-  letter-spacing: 1px;
-}
-
-.oj-name {
+/* ===== CENTER BRAND ===== */
+.oj-brand-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 13px;
   letter-spacing: 3px;
+  pointer-events: none;
 }
 
-/* ===== LINKS ===== */
+/* ===== LINKS (DESKTOP) ===== */
 .oj-links {
   display: flex;
-  gap: 40px;
+  gap: 30px;
 }
 
 .oj-link {
@@ -54,12 +44,9 @@
   font-size: 12px;
   letter-spacing: 2px;
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
-/* underline desktop */
+/* underline */
 .oj-link::after {
   content: "";
   position: absolute;
@@ -68,7 +55,7 @@
   width: 0%;
   height: 1px;
   background: #fff;
-  transition: width 0.3s ease;
+  transition: width 0.3s;
 }
 
 .oj-link:hover::after,
@@ -76,36 +63,70 @@
   width: 100%;
 }
 
-/* icons hidden on desktop */
-.icon {
+/* ===== MOBILE BUTTON ===== */
+.oj-mobile-btn {
   display: none;
-  width: 18px;
-  height: 18px;
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
-/* ===== MOBILE ONLY ===== */
+/* ===== MOBILE MENU ===== */
+.oj-mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+
+  z-index: 2000;
+}
+
+.oj-mobile-menu.open {
+  transform: translateY(0);
+}
+
+.oj-mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+/* CLOSE BUTTON */
+.oj-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .oj-navbar-inner {
-    padding: 0 20px;
-  }
 
-  .oj-name {
+  .oj-links {
     display: none;
   }
 
-  .text {
-    display: none;
-  }
-
-  .icon {
+  .oj-mobile-btn {
     display: block;
   }
 
-  .oj-links {
-    gap: 20px;
-  }
-
-  .oj-link::after {
-    display: none;
-  }
 }

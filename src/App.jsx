@@ -20,7 +20,7 @@ export default function App() {
     <>
       <Navbar />
 
-      <main style={{ paddingTop: "80px" }}>
+      <main>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route
@@ -62,7 +62,6 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Footer logic */}
       <Footer minimal={isContact} />
     </>
   );

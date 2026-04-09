@@ -1,35 +1,54 @@
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Home, ShoppingBag, Phone } from "lucide-react";
 import "./Navbar.css";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // lock scroll when menu opens
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
+
   return (
-    <header className="oj-navbar">
-      <div className="oj-navbar-inner">
-        {/* LEFT */}
-        <NavLink to="/" className="oj-brand">
-          <div className="oj-logo">OJ</div>
-          <span className="oj-name">OUTFIT JUNIOR</span>
-        </NavLink>
+    <>
+      <header className="oj-navbar">
+        <div className="oj-navbar-inner">
 
-        {/* RIGHT */}
-        <div className="oj-links">
-          <NavLink to="/" className="oj-link">
-            <span className="text">HOME</span>
-            <Home className="icon" />
-          </NavLink>
+          {/* MOBILE BUTTON */}
+          <button
+            className="oj-mobile-btn"
+            onClick={() => setMenuOpen(true)}
+          >
+            OJ
+          </button>
 
-          <NavLink to="/shop" className="oj-link">
-            <span className="text">SHOP</span>
-            <ShoppingBag className="icon" />
-          </NavLink>
+          {/* CENTER BRAND (NOT clickable) */}
+          <div className="oj-brand-center">OUTFIT JUNIOR</div>
 
-          <NavLink to="/contact" className="oj-link">
-            <span className="text">CONTACT</span>
-            <Phone className="icon" />
-          </NavLink>
+          {/* DESKTOP LINKS */}
+          <div className="oj-links">
+            <NavLink to="/" className="oj-link">HOME</NavLink>
+            <NavLink to="/shop" className="oj-link">SHOP</NavLink>
+            <NavLink to="/contact" className="oj-link">CONTACT</NavLink>
+          </div>
+
         </div>
+      </header>
+
+      {/* MOBILE MENU OVERLAY */}
+      <div className={`oj-mobile-menu ${menuOpen ? "open" : ""}`}>
+        <button
+          className="oj-close"
+          onClick={() => setMenuOpen(false)}
+        >
+          ✕
+        </button>
+
+        <NavLink to="/" onClick={() => setMenuOpen(false)}>HOME</NavLink>
+        <NavLink to="/shop" onClick={() => setMenuOpen(false)}>SHOP</NavLink>
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>CONTACT</NavLink>
       </div>
-    </header>
+    </>
   );
 }
